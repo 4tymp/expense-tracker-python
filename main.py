@@ -13,12 +13,22 @@ class Expenses:
 expenses = []
 
 parser = argparse.ArgumentParser()
+parser.add_argument("command", help="starts add sequence")
 parser.add_argument("--description", help="sets expense description")
 parser.add_argument("--amount", help="sets expense amount", type=int)
 args = parser.parse_args()
 
-if len(args.description) > 0 and args.amount > 0:
-    new_expense = Expenses(args.description, args.amount)
-    expenses.append(new_expense)
+if args.command == "add":
+    if args.description is not None and args.amount is not None and args.amount > 0:
+        new_expense = Expenses(args.description, args.amount)
+        expenses.append(new_expense)
 
-    print(expenses[0].id, expenses[0].desc, expenses[0].amount, expenses[0].date)
+        print("successfully added new expense")
+    else:
+        print("proper use of add: add --description 'description' --amount 10")
+elif args.command == "list":
+    print("# ID  Date       Description  Amount")
+
+    for i in expenses:
+        print(f"# {i.id}  {i.date}       {i.description}  {i.amount}")
+        
