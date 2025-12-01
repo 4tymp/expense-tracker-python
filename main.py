@@ -10,8 +10,8 @@ args = listening() #wrzuca do zmiennej args
 if args.command == "add":
     add(args, expenses)
 elif args.command == "list":
-    print("# ID  Date       Description  Amount")
+    print("# ID  Date                    Description        Amount")
 
     for i in expenses:
-        print(f"# {i.id}  {i.date}       {i.desc}  {i.amount}")
+        print(f"# {i.id}  {i.date}       {i.desc}                 {i.amount}")
         

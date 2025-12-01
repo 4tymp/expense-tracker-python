@@ -8,20 +8,20 @@ def load_from_csv():
     
     expenses = []
 
-    with open(filename, "r", encoding="utf-8") as f:
-        csvreader = csv.DictReader(f)
+    with open(filename, "r") as f: # otwiera plik
+        csvreader = csv.DictReader(f) #jako dict reader
         for row in csvreader:
-            e = Expenses_list(
+            e = Expenses_list( # i wrzuca sobie to co zapisane w pliku dzieki konstruktorowi
                 row["Description"],
                 float(row["Amount"])
             )
-            e.id = int(row["ID"])
+            e.id = int(row["ID"]) # a to manualnie, bo nie ma w konstruktorze
             e.date = datetime.datetime.fromisoformat(row["Date"])
             expenses.append(e)
 
     # ustaw iterator ID na kolejny numer
     if expenses:
-        Expenses_list.id_iter = itertools.count(expenses[-1].id + 1)
+        Expenses_list.id_iter = itertools.count(expenses[-1].id + 1) # no i wrzuca do naszej listy po ktorej sie odwolujemy
 
     return expenses
 
