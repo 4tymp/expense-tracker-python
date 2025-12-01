@@ -1,11 +1,14 @@
-from classes import Expenses
+from classes import Expenses_list
 from parse import listening
 from adding import add
+from csv_handling import load_from_csv
 
 expenses = []
 
-parser = listening() # slucha parsera
-args = listening.parse_args() #wrzuca do zmiennej args
+#load_from_csv()
+
+
+args = listening() #wrzuca do zmiennej args
 
 if args.command == "add":
     add(args, expenses)
