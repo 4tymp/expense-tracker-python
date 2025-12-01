@@ -3,10 +3,7 @@ from parse import listening
 from adding import add
 from csv_handling import load_from_csv
 
-expenses = []
-
-#load_from_csv()
-
+expenses = load_from_csv()
 
 args = listening() #wrzuca do zmiennej args
 
@@ -16,5 +13,5 @@ elif args.command == "list":
     print("# ID  Date       Description  Amount")
 
     for i in expenses:
-        print(f"# {i.id}  {i.date}       {i.description}  {i.amount}")
+        print(f"# {i.id}  {i.date}       {i.desc}  {i.amount}")
         
