@@ -14,4 +14,10 @@ elif args.command == "list":
 
     for i in expenses:
         print(f"# {i.id}  {i.date}       {i.desc}                 {i.amount}")
-        
+
+elif args.command == "summary":
+    summ = 0
+    for i in expenses:
+        summ += i.amount
+    
+    print(f"Total Expenses: {summ}")
