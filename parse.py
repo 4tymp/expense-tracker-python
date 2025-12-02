@@ -6,4 +6,5 @@ def listening():
     parser.add_argument("command", help="starts add sequence")
     parser.add_argument("--description", help="sets expense description")
     parser.add_argument("--amount", help="sets expense amount", type=int)
+    parser.add_argument("--id", help="checks id", type=int)
     return parser.parse_args()
